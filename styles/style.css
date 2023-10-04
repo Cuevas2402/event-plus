@@ -37,8 +37,10 @@ main{
     border: 2px solid black;
     box-shadow: 5px 5px 10px gray;
     border-radius: 10px;
-    display: flex;
-    gap: 20px   ;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-auto-rows: minmax(100px, auto);
+    gap: 20px;
     padding: 10px;
 }
 
@@ -64,4 +66,52 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+.form__container{
+    margin: 5%;
+    height: 600px;
+    border: 1px solid black;
+    box-shadow: 5px 5px 10px gray;
+    border-radius: 10px;
+    background-color: #E09F3E;
+    text-align: center;
+    color: white;
+    font-size: 4dvb;
+    font-weight: bold;
+}
+
+.over__container{
+    margin: 1%;
+    height: 520px;
+    border-radius: 10px;
+    background-color: #9E2A2B;
+    display: flex;
+    font-weight: normal;
+}
+
+.img__cont img{
+    width: 50%;
+    margin-top: 30%;
+}
+
+.login_bg{
+    background-color: #FFF3B0;
+}
+
+.vl {
+    border-left: 2px solid #335C67;
+    height: 440px;
+    margin-top: 40px;
+  }
+
+.form__cont{
+  margin-top: 5%;
+  margin-left: 20%;
+  text-align: center;
+}
+
+.register__link{
+  text-decoration: none;
+  color: #540B0E;
 }
