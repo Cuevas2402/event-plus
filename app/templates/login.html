@@ -3,25 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="styles/form.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <title>Soiree Register</title>
+    <link rel="stylesheet" href="../../src/styles/style.css">
+    <link rel="stylesheet" href="../../src/styles/form.css">
+    <link href="../../src/css/bootstrap.min.css" rel="stylesheet">
+    <title>Soiree login</title>
 </head>
 <body class="login_bg">
 
     <div class="form__container">
-        Register
+        Login
         <div class="over__container">
             <div class="img__cont">
-                <img src="img/Sample_User_Icon.png" alt="Sample_User_Icon">
+                <img src="../../src/img/Sample_User_Icon.png" alt="Sample_User_Icon">
             </div>
             <div class="vl"></div>
             <div class="form__cont">
                 <div class="fadeInDown form-box">
                     <div class="form-value">
                         <form action="#" method="post">
-                            <h2>Register</h2>
+                            <h2>Welcome back</h2>
                             <div class="inputbox fadeInDown">
                                 <ion-icon name="mail-outline"></ion-icon>
                                 <input type="text" name="user" required>
@@ -32,21 +32,18 @@
                                 <input type="password" name="password" required>
                                 <label class="hint" for="password">password</label>
                             </div>
-                            <div class="inputbox fadeInDown">
-                                <ion-icon name="lock-closed-outline"></ion-icon>
-                                <input type="password" name="repeat_password" required>
-                                <label class="hint" for="repeat_password">repeat password</label>
-                            </div>
-                            <button class="fadeInDown">submit</button>
+                            <button class="fadeInDown">Ingresar</button>
+                            <a class="register__link" href="register.html">Sign in</a>
                         </form>
                     </div>
                 </div>
+                
             </div>
         </div>
     </div>
 
     <!-- Es una libreria JS de bootstrap -->
-    <script src="js/popper.js"></script> <!-- 2.11.6 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../src/js/popper.js"></script> <!-- 2.11.6 -->
+    <script src="../../src/js/bootstrap.min.js"></script>
 </body>
 </html>
