@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../../src/styles/style.css">
-        <link href="../../src/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css' )}}">
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css' )}}" rel="stylesheet">
         <title> Soiree </title>
     </head>
 
@@ -54,7 +54,7 @@
                 
                 <div class="filtro__individual">
                     <!-- Precio -->
-                    <label for="precio">Filtrar por precio: $<span id="precioValor">0</span></label>
+                    <label for="precio">Filtrar por preco: $<span id="precioValor">0</span></label>
                     <input type="range" class="form-range" id="precio" min="0" max="5000" step="100">
 
                     <script>
@@ -153,8 +153,7 @@
             Derechos reservados, UDEM, gestión de tecnología
         </footer>
 
-        <!-- Es una libreria JS de bootstrap -->
-        <script src="../../src/js/popper.js"></script> <!-- 2.11.6 -->
-        <script src="../../src/js/bootstrap.min.js"></script>
+        <script src="{{ url_for('static', filename='/js/popper.js')}}"></script> <!-- 2.11.6 -->
+        <script src="{{ url_for('static', filename='/js/bootstrap.min.js')}}"></script>
     </body>
 </html>
