@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../src/styles/style.css">
-    <link rel="stylesheet" href="../../src/styles/form.css">
-    <link href="../../src/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css' )}}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css' )}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/form.css')}}">
     <title>Soiree login</title>
 </head>
 <body class="login_bg">
@@ -14,7 +14,7 @@
         Login
         <div class="over__container">
             <div class="img__cont">
-                <img src="../../src/img/Sample_User_Icon.png" alt="Sample_User_Icon">
+                <img src="{{ url_for('static', filename='img/Sample_User_Icon.png')}}" alt="Sample_User_Icon">
             </div>
             <div class="vl"></div>
             <div class="form__cont">
@@ -33,7 +33,7 @@
                                 <label class="hint" for="password">password</label>
                             </div>
                             <button class="fadeInDown">Ingresar</button>
-                            <a class="register__link" href="register.html">Sign in</a>
+                            <a class="register__link" href="{{ url_for('register')}}">Sign in</a>
                         </form>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- Es una libreria JS de bootstrap -->
-    <script src="../../src/js/popper.js"></script> <!-- 2.11.6 -->
-    <script src="../../src/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='/js/popper.js')}}"></script> <!-- 2.11.6 -->
+    <script src="{{ url_for('static', filename='/js/bootstrap.min.js')}}"></script>
 </body>
 </html>
