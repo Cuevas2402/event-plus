@@ -13,7 +13,7 @@
     <div class="container row my-5 w-100 h-100">
 
         <div class="col-4">
-            <div class="container w-75 my-4 bg-light rounded shadow py-1 w-75 h-100">
+            <div class="container w-75 my-4 bg-light rounded shadow py-1 w-75" style="height: 30rem;">
                 <div class="my-3">
 
                     <label class="my-2" for="calificacion">Filtrar por categoría:</label>
@@ -62,29 +62,10 @@
         </div>
 
         <div class="col-8">
-            <div class="container row py-4">
-                
-                <div class="col-md-4 d-inline-block mx-3">
-                    <div class="card" style="width: 18rem; height: 25rem;">
-                        <div class="overflow-hidden" style="height: 10rem;">
-                            <img src="{{ url_for('static', filename='img/evento1.jpg')}}" class="card-img-top" alt="...">
-                        </div>
-                        <div class="card-body">
-                            <div class="text-center my-3">
-                                <h3 class="card-title">Card title</h3>
-                            </div>
-                                <p class="card-text">Lorem ipsum dolor sit amet,pellentesque nisl in, ultricies mauris. Aliquam erat volutpat.</p>
-                            <div class="row">
-                                <div class="col">
-                                    <a href="#" class="btn btn-outline-info shadow-sm w-100" >Ver detalles</a>
-                                </div>
-                                <div class="col">
-                                    <a href="#" class="btn btn-outline-success shadow-sm w-100">Añadir</a>
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
+            <div class="container row py-4" style="height: 40rem; overflow: auto;">
+                {% for html in htmls %}    
+                    {{ html|safe }}
+                {% endfor %}
             </div>
         </div>
 
@@ -94,7 +75,7 @@
 
 {% block js %}
     {{ super() }}
-
+    <script src="{{url_for('static', filename='js/filter.js')}}"></script>
     <script>
         const precioInput = document.getElementById('precio');
         const precioValor = document.getElementById('precioValor');

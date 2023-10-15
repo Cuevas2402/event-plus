@@ -18,4 +18,4 @@ app.config['MYSQL_DB'] = os.getenv('MYSQL_DB')
 
 mysql = MySQL(app)
 
-from app import main_page, credentials
+from app import main_page, credentials, filters

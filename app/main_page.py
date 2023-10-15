@@ -3,4 +3,14 @@ from flask import render_template
 
 @app.route('/')
 def main_page():
-    return render_template('pages/index.html')
+    cursor = mysql.connection.cursor()
+
+    sql = 'SELECT iid, nombre, desc_p, img FROM item;'
+
+    cursor.execute(sql)
+
+    results = cursor.fetchall()
+    htmls = []
+    for result in results:
+        htmls.append(render_template('/components/card.html', id = result[0], titulo = result[1], descripcion = result[2], imagen = result[3] ))
+    return render_template('pages/index.html', htmls = htmls)
