@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %} Soiree {% endblock %}
+
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+{% block main %}
+
+    <div class="filters">
+
+        <div class="filtro__titulo">
+            Filtros<br>
+            <hr>
+        </div>
+
+        <div class="filtro__individual">
+            <!-- Filtros generales -->
+            <label for="calificacion">Filtrar por categoría:</label>
+            <select class="form-select" id="calificacion">
+                <option value=""> ----- </option>
+                <option value="comida"> Comida </option>
+                <option value="inmuebles"> Inmuebles </option>
+                <option value="floreria"> Floreria</option>
+            </select>
+        </div>
+        
+        <div class="filtro__individual">
+            <!-- Precio -->
+            <label for="precio">Filtrar por preco: $<span id="precioValor">0</span></label>
+            <input type="range" class="form-range" id="precio" min="0" max="5000" step="100">
+
+            <script>
+                const precioInput = document.getElementById('precio');
+                const precioValor = document.getElementById('precioValor');
+            
+                precioInput.addEventListener('input', function () {
+                    precioValor.textContent = precioInput.value;
+                });
+            </script>
+        </div>
+
+        <div class="filtro__individual">
+            <!--calificacion -->
+            <label for="calificacion">Filtrar por calificación:</label>
+            <select class="form-select" id="calificacion">
+                <option value="5">5 estrellas</option>
+                <option value="4">4 estrellas</option>
+                <option value="3">3 estrellas</option>
+                <option value="2">2 estrellas</option>
+                <option value="1">1 estrella</option>
+            </select>
+        </div>
+        
+        <div class="filtro__individual">
+            <!-- Ubicacion -->
+            <label for="ubicacion">Filtrar por ubicación:</label>
+            <input type="text" class="form-control" id="ubicacion" placeholder="Buscar por ubicación">
+        </div>
+        
+        <div class="filtro__individual">
+            <!-- Fecha -->
+            <label for="fecha">Filtrar por fecha:</label>
+            <input type="date" class="form-control" id="fecha">
+        </div>
+    </div>
+
+    <div class="card-holder">
+        <div class="card" style="width: 18rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"> Company name</h5>
+                <p class="card-text">Quick description</p>
+                <a href="#" class="btn btn-dark"> Visit</a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+{% endblock %}

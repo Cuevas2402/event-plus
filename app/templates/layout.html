@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css' )}}">
+            <link href="{{ url_for('static', filename='css/bootstrap.min.css' )}}" rel="stylesheet">
+            <title> {% block title %} {% endblock %}</title>
+
+        {% endblock %}
+    </head>
+
+    <body>
+        <!-- Navbar -->
+        <header>
+            <nav class="navbar navbar-expand-lg" style="background-color: #540B0E;">
+                <div class="container-fluid navbar__div">
+                    <div class="pagename">
+                        <a class="navbar-brand text-white"> Soiree </a>
+                    </div>
+                  
+                    <div class="search__engine">
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-light" type="submit">Search</button>
+                        </form>
+                    </div>
+                    
+                    <div class="login__btn">
+                        <a href="{{ url_for('login')}}"><button class="btn btn-outline-light" type="submit">Login</button></a>
+                    </div>
+                </div>
+              </nav>
+        </header>
+        
+        <main>
+            {% block main %}
+
+            {% endblock %}
+        </main>
+
+        <footer>
+            Derechos reservados, UDEM, gestión de tecnología
+        </footer>
+        
+        <div class="js">
+            {% block js %}
+
+                <script src="{{ url_for('static', filename='/js/popper.js')}}"></script> <!-- 2.11.6 -->
+                <script src="{{ url_for('static', filename='/js/bootstrap.min.js')}}"></script>
+
+            {% endblock %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,35 @@
+{% extends "layout_credentials.html" %}
+
+{% block title %} Soiree Log in {% endblock %}
+
+{% block head %}
+	{{ super() }}
+{% endblock %}
+
+{% block heading %} Log in {% endblock %}
+
+{% block form %}
+
+    <form action="#" method="post">
+        <h2>Welcome back</h2>
+        <div class="inputbox fadeInDown">
+            <ion-icon name="mail-outline"></ion-icon>
+            <input type="text" name="user" required>
+            <label class="hint" for="user">mail</label>
+        </div>
+        <div class="inputbox fadeInDown">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" name="password" required>
+            <label class="hint" for="password">password</label>
+        </div>
+        <button class="fadeInDown">Ingresar</button>
+        <a class="register__link" href="{{ url_for('register')}}">Sign in</a>
+    </form>
+
+{% endblock %}
+
+{% block js %}
+
+    {{ super() }}
+
+{% endblock %}

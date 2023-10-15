@@ -3,11 +3,11 @@ from flask import render_template, request
 
 @app.route('/login')
 def login():
-    return render_template('login.html')
+    return render_template('pages/login.html')
 
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    return render_template('pages/register.html')
 
 #@app.route('/iniciar')
 #def iniciar():
