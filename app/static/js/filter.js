@@ -1,20 +1,10 @@
 $(document).ready(function() {
     $('select, input').on('change', function() {
-        var categoria = $('#calificacion').val();
+        var categoria = $('#categoria').val();
         var precio = $('#precio').val();
         var calificacion = $('#calificacion').val();
         var ubicacion = $('#ubicacion').val();
         var fecha = $('#fecha').val();
-        
-        var data = {
-                categoria: categoria,
-                precio: precio,
-                calificacion: calificacion,
-                ubicacion: ubicacion,
-                fecha: fecha
-            }
-        console.log(data)
-        /*
         $.ajax({
             url: '/filter',
             type: 'POST', 
@@ -26,10 +16,15 @@ $(document).ready(function() {
                 fecha: fecha
             },
             success: function(response) {
+                console.log(response.htmls[0])
+                $('#cont').empty();
+                response.htmls.forEach((html) => {
+                    $('#cont').append(html);
+                });
             },
             error: function() {
                 console.log('Error en la solicitud AJAX');
             }
-        });*/
+        });
     });
 });

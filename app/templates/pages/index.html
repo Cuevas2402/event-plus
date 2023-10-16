@@ -18,7 +18,7 @@
 
                     <label class="my-2" for="calificacion">Filtrar por categoría:</label>
                     
-                    <select class="form-select" id="calificacion">
+                    <select class="form-select" id="categoria">
                         <option value=""> ----- </option>
                         <option value="comida"> Comida </option>
                         <option value="inmuebles"> Inmuebles </option>
@@ -37,7 +37,7 @@
                 <div class="my-3">
 
                     <label class="my-2" for="calificacion">Filtrar por calificación:</label>
-                    <select class="form-select" id="calificacion">
+                    <select class="form-select" name="calificacion" id="calificacion">
                         <option value="5">5 estrellas</option>
                         <option value="4">4 estrellas</option>
                         <option value="3">3 estrellas</option>
@@ -51,18 +51,18 @@
 
                 <div class="my-3">
                     <label class="my-2" for="ubicacion">Filtrar por ubicación:</label>
-                    <input type="text" class="form-control" id="ubicacion" placeholder="Buscar por ubicación">
+                    <input type="text" name="ubicacion" class="form-control" id="ubicacion" placeholder="Buscar por ubicación">
                 </div>
                 
                 <div class="my-3">
                     <label class="my-2" for="fecha">Filtrar por fecha:</label>
-                    <input type="date" class="form-control" id="fecha">
+                    <input type="date" name="fecha" class="form-control" id="fecha">
                 </div>
             </div>
         </div>
 
         <div class="col-8">
-            <div class="container row py-4" style="height: 40rem; overflow: auto;">
+            <div id="cont "class="container row py-4 w-100" style="height: 40rem; overflow: auto;">
                 {% for html in htmls %}    
                     {{ html|safe }}
                 {% endfor %}
