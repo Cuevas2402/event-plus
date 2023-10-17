@@ -12,9 +12,11 @@
                 <div class="col">
                     <a href="/details/{{ id }}" class="btn btn-outline-info shadow-sm w-100" >Ver detalles</a>
                 </div>
-                <div class="col">
-                    <a value="{{ id }}" class="btn btn-outline-success shadow-sm w-100">Añadir</a>
-                </div>
+                {% if session['logged'] %}
+                    <div class="col">
+                        <a value="{{ id }}" class="btn btn-outline-success shadow-sm w-100">Añadir</a>
+                    </div>
+                {% endif %}
             </div> 
         </div>
     </div>
