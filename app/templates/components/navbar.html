@@ -1,0 +1,57 @@
+<header>
+            
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Soiree</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Chat</a>
+                </li>
+            </ul>
+            {% if session['logged'] %}
+
+                <div class="d-flex px-5" role="search">
+                    <div class="dropdown mx-2">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ session['username']}}
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="#">Carritio</a></li>
+                        </ul>
+                    </div>
+                    <button id="btn-logout" class="btn btn-outline-danger mx-2">Log out</button>
+                </div>
+
+            
+            {% else %}
+
+                <div class="d-flex px-5">
+                    <a href="{{ url_for('login')}}"><button class="btn btn-outline-success" type="submit">Login</button></a>
+                </div>
+
+            {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <div style="width: 100%; background-color: #7A4157;">
+        <div class="container py-3">
+            <center>
+                <form class="d-flex w-75" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn shadow-lg" style="background-color: #fff;"><iconify-icon icon="ic:baseline-search"></iconify-icon></button>
+                </form>
+            </center>
+
+        </div>
+    </div>
+
+</header>

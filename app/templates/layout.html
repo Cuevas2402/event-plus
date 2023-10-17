@@ -15,42 +15,7 @@
 
     <body>
         <!-- Navbar -->
-        <header>
-            <nav class="navbar navbar-expand-lg" style="background-color: #540B0E;">
-                <div class="container-fluid navbar__div">
-
-                    <div class="pagename">
-                        <a class="navbar-brand text-white"> Soiree </a>
-                    </div>
-
-                    
-
-                    <div class="search__engine">
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit">Search</button>
-                        </form>
-                    </div>
-
-                    
-                    {% if session['logged'] %}
-
-                        <div class="login__btn row">
-                                <button id="btn-logout" class="btn btn-outline-light" type="submit"> Log out </button>
-                        </div>
-                    
-                    {% else %}
-
-                        <div class="login__btn">
-                            <a href="{{ url_for('login')}}"><button class="btn btn-outline-light" type="submit">Login</button></a>
-                        </div>
-
-                    {% endif %}
-
-
-                </div>
-              </nav>
-        </header>
+       {% include 'components/navbar.html' %} 
         
         {% block main %}
 
@@ -66,7 +31,7 @@
                 <script src="{{ url_for('static', filename='/js/popper.js')}}"></script> <!-- 2.11.6 -->
                 <script src="{{ url_for('static', filename='/js/bootstrap.min.js')}}"></script>
                 <script src="{{ url_for('static', filename='/js/logout.js')}}"></script>
-
+                <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
             {% endblock %}
         </div>
     </body>
