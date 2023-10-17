@@ -1,4 +1,4 @@
-{% extends "layout_credentials.html" %}
+{% extends "layout.html" %}
 
 {% block title %} Soiree Log in {% endblock %}
 
@@ -8,27 +8,33 @@
 
 {% block heading %} Register {% endblock %}
 
-{% block form %}
+{% block main %}
 
-    <form action="/registrar" method="POST">
-        <h2>Register</h2>
-        <div class="inputbox fadeInDown">
-            <ion-icon name="mail-outline"></ion-icon>
-            <input type="text" name="user" required>
-            <label class="hint" for="user">Username</label>
-        </div>
-        <div class="inputbox fadeInDown">
-            <ion-icon name="lock-closed-outline"></ion-icon>
-            <input type="password" name="password" required>
-            <label class="hint" for="password">Password</label>
-        </div>
-        <div class="inputbox fadeInDown">
-            <ion-icon name="lock-closed-outline"></ion-icon>
-            <input type="password" name="repeat_password" required>
-            <label class="hint" for="repeat_password">repeat password</label>
-        </div>
-        <button class="fadeInDown">submit</button>
-    </form>
+    <div class="container rounded shadow-lg  pt-3 w-50 my-5 "  style="background-color: #E0C3CE; height: 35rem;">
+        <h1 class="text-center my-5"> Registrarse </h1>
+
+        <form action="/registrar" method="post" class="px-5">
+            <div class="my-4">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="user" >
+            </div>
+            <div class="my-4">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" >
+            </div>
+            <div class="my-4">
+                <label class="form-label">Repeat password</label>
+                <input type="password" class="form-control" name="repeat_password" >
+            </div>
+            <center>
+                <button class="btn shadow-lg btn-light mx-auto my-2" type="submit"> Registrar </button>
+            </center>
+            <center>
+
+                <a class="register__link" href="{{ url_for('login')}}">Iniciar sesion</a>
+            </center>
+        </form>
+    </div>
 
 {% endblock %}
 
