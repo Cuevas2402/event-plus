@@ -12,7 +12,7 @@
                     <a class="nav-link active" aria-current="page" href="{{ url_for('main_page')}}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Chat</a>
+                    <a class="nav-link" href="{{ url_for('show_chat')}}">Chaat</a>
                 </li>
             </ul>
             {% if session['logged'] %}

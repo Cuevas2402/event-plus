@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %} Soiree Log in {% endblock %}
+
+{% block head %}
+	{{ super() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{% endblock %}
+
+{% block heading %} Chat {% endblock %}
+
+{% block main %}
+    <div class="container" id="messages">
+
+    </div>
+    <input type="text" id="username">
+    <input type="text" id="message">
+    <button id="send">Send</button>
+
+{% endblock %}
+
+{% block js %}
+
+    {{ super() }}
+    <script>
+        $(document).ready(() =>{
+            var socket = io.connect("http://127.0.0.1:5000")
+            socket.on('connect', () => {
+                socket.send("User connected!");
+            });
+
+            socket.on('message', function(data){
+               $('#messages').append($('<p>').text(data));
+            });
+            
+            $('#send').on('click', ()=>{
+                socket.send($('#username').val() + ': '+$('#message').val());
+                $('#message').val(''); 
+            });
+        });
+    </script>
+
+{% endblock %}
