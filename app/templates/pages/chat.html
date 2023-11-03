@@ -5,17 +5,26 @@
 {% block head %}
 	{{ super() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js" integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/chat.css')}}">
 {% endblock %}
 
 {% block heading %} Chat {% endblock %}
 
 {% block main %}
-    <div class="container" id="messages">
+    <div class="d-flex justify-content-center">
+
+        <div class="chat-box">
+            <div class="chat-header">Chat</div>
+            <div class="chat-messages" id="chat-messages">
+                <!-- Aqui es donde los mensajes se les hace append -->
+            </div>
+            <div class="chat-input">
+                <input type="text" id="message-input" placeholder="Type your message">
+                <button id="send-button">Send</button>
+            </div>
+        </div>
 
     </div>
-    <input type="text" id="username">
-    <input type="text" id="message">
-    <button id="send">Send</button>
 
 {% endblock %}
 
@@ -30,14 +39,49 @@
             });
 
             socket.on('message', function(data){
-               $('#messages').append($('<p>').text(data));
+                console.log(data);
+
+                const messageElement = document.createElement("div");
+                messageElement.textContent = data;
+                
+                $('#chat-messages').append(messageElement);
+                $('#message-input').val("");
+
             });
-            
-            $('#send').on('click', ()=>{
-                socket.send($('#username').val() + ': '+$('#message').val());
-                $('#message').val(''); 
+
+            $('#send-button').on('click', () =>{
+
+                const message = $('#message-input').val();
+                
+                $('#chat-messages').append('<div> User: '+message+'</div>');
+
+                if (message) {
+
+                    socket.send("Bot: "+ message);
+                    $('#message').val(''); 
+                    
+                }
             });
+
         });
     </script>
+
+    <!--<script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const chatMessages = document.getElementById("chat-messages");
+        const messageInput = document.getElementById("message-input");
+        const sendButton = document.getElementById("send-button");
+
+        sendButton.addEventListener("click", function() {
+                const message = messageInput.value;
+                if (message) {
+                    const messageElement = document.createElement("div");
+                    messageElement.textContent = message;
+                    chatMessages.appendChild(messageElement);
+                    messageInput.value = "";
+                }
+            });
+        });
+    </script>-->
 
 {% endblock %}
