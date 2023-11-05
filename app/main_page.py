@@ -1,5 +1,5 @@
 from app import app, mysql
-from flask import render_template
+from flask import render_template, redirect, url_for
 
 @app.route('/')
 def main_page():
@@ -14,3 +14,7 @@ def main_page():
     for result in results:
         htmls.append(render_template('/components/card.html', id = result[0], titulo = result[1], descripcion = result[2], imagen = result[3] ))
     return render_template('pages/index.html', htmls = htmls)
+
+@app.errorhandler(404)
+def not_found(err):
+    return redirect(url_for('main_page'))
