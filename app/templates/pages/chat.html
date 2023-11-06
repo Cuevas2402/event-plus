@@ -14,10 +14,10 @@
     <div class="d-flex justify-content-center">
 
         <div class="chat-box">
-            <div class="chat-header">Chat</div>
-            <div class="chat-messages" id="chat-messages">
-                <!-- Aqui es donde los mensajes se les hace append -->
-            </div>
+            <div class="chat-header">EventBot</div>
+
+            <div class="chat-messages" id="chat-messages"></div>
+
             <div class="chat-input">
                 <input type="text" id="message-input" placeholder="Type your message">
                 <button id="send-button">Send</button>
@@ -65,23 +65,5 @@
 
         });
     </script>
-
-    <!--<script>
-        document.addEventListener("DOMContentLoaded", function() {
-        const chatMessages = document.getElementById("chat-messages");
-        const messageInput = document.getElementById("message-input");
-        const sendButton = document.getElementById("send-button");
-
-        sendButton.addEventListener("click", function() {
-                const message = messageInput.value;
-                if (message) {
-                    const messageElement = document.createElement("div");
-                    messageElement.textContent = message;
-                    chatMessages.appendChild(messageElement);
-                    messageInput.value = "";
-                }
-            });
-        });
-    </script>-->
 
 {% endblock %}

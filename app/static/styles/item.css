@@ -1,0 +1,15 @@
+.image-container {
+    max-width: 300px; /* Tamaño máximo deseado */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+.image-container img {
+    max-width: 100%; /* Hace que la imagen se ajuste al contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+
+.bottom-element {
+    position: absolute;
+    bottom: 0;
+}

@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %} Soiree Item {% endblock %}
+
+{% block head %}
+	{{ super() }}
+    <link rel="stylesheet" href="{{url_for('static', filename='styles/item.css')}}">
+{% endblock %}
+
+{% block heading %} Chat {% endblock %}
+
+{% block main %}
+    <div class="container" style="margin-top: 4rem; margin-bottom: 4rem;">
+
+        <div class="row">
+
+            <div class="col">
+                <div class="image-container">
+                    <center>
+                        <img src="{{url_for('static', filename = item[2])}}" alt="imagen item">
+                    </center>
+                </div>
+            </div>
+
+            <div class="col py-5">
+                <h1 class="my-2">{{item[0]}}</h1>
+                <h3 class="my-4">{{item[1]}}</h3>
+                <p class="my-2">{{ item[3] }}</p>
+
+                {% if session['logged'] %}
+                    <div class="btn-add">
+                        <button id="" class="btn btn-outline-success">Añadir al carro</button>
+                    </div>
+
+                {% endif %}
+
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+    {{ super() }}
+    <script>
+        
+    </script>
+
+{% endblock %}

@@ -1,6 +1,9 @@
 from app import app, mysql
 from flask import render_template, request, redirect, url_for, session
 
+
+app.secret_key = "nuestraClaveSecretaUWU"
+
 @app.route('/login')
 def login():
     if 'username' not in session:
