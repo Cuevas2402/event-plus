@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block title %} Soiree Log in {% endblock %}
+
+{% block head %}
+	{{ super() }}
+
+{% endblock %}
+
+{% block heading %} Chat {% endblock %}
+
+{% block main %}
+    <div class="container" style="height: 33rem;">
+        <center>
+            <h1 class="my-5">Carrito de compra</h1>
+        </center>
+
+        <ul class="list-group w-100" style="max-height: 18rem; overflow-y: auto;">
+            <li class="list-group-item">
+                <div class="row">
+
+                    <div class="ml-1 col-8">
+						<h4 class="mx-3">Item 1</h4>
+                    </div>
+
+                    <div class="col-4">
+                    	<div class="row">
+						
+							<div class="col">
+
+								<center>
+									<button type="button" class="btn btn-outline-danger"><b> - </b></button>
+								</center>
+
+							</div>
+
+							<div class="col">
+
+								<center>
+									<input type="number" min="0" class="cantidad form-control">		
+								</center>
+
+							</div>
+
+							<div class="col">
+
+								<center>
+									<button type="button" class="btn btn-outline-success"><b> + </b></button>
+								</center>
+
+							</div>
+                       </div> 
+                    </div>
+
+                </div>
+
+            </li>
+
+          </ul>
+
+		  <div class="d-flex flex-row-reverse">
+
+				<div class="p-2">
+					<button type="button" class="btn btn-primary"><b> Comprar </b></button>
+				</div>
+
+		  </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+    {{ super() }}
+    <script>
+
+    </script>
+
+{% endblock %}
