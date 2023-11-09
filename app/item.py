@@ -5,7 +5,7 @@ from flask import render_template, request, redirect, url_for, session, jsonify
 def show_item(id):
     if id is not None:
         cursor = mysql.connection.cursor()
-        sql = "SELECT nombre, tipo, img, desc_g FROM item WHERE iid = %s;"
+        sql = "SELECT nombre, tipo, img, desc_g, iid FROM item WHERE iid = %s;"
 
         cursor.execute(sql, (id, ))
 

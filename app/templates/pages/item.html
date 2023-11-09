@@ -29,7 +29,7 @@
 
                 {% if session['logged'] %}
                     <div class="btn-add">
-                        <button id="" class="btn btn-outline-success">Añadir al carro</button>
+                        <button id="{{ item[4] }}" class="add-btn btn btn-outline-success">Añadir al carro</button>
                     </div>
 
                 {% endif %}
@@ -44,8 +44,7 @@
 {% block js %}
 
     {{ super() }}
-    <script>
-        
-    </script>
+
+    <script src="{{ url_for('static', filename = 'js/addCart.js')}}"></script>
 
 {% endblock %}

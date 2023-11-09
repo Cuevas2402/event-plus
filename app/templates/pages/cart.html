@@ -14,57 +14,48 @@
         <center>
             <h1 class="my-5">Carrito de compra</h1>
         </center>
+		<center>
+			<form action="/buy" method="POST">
 
-        <ul class="list-group w-100" style="max-height: 18rem; overflow-y: auto;">
-            <li class="list-group-item">
-                <div class="row">
+				<ul class="list-group w-50" style="max-height: 18rem; overflow-y: auto;">
+					{% for item in items %}
 
-                    <div class="ml-1 col-8">
-						<h4 class="mx-3">Item 1</h4>
-                    </div>
+						<li class="list-group-item">
+							<div class="row">
 
-                    <div class="col-4">
-                    	<div class="row">
-						
-							<div class="col">
+								<div class="ml-1 col-8">
+									<input type="text" readonly class="item form-control-plaintext" name="item" value="{{ item[0]|string + '-' + item[1] }}">
+								</div>
 
-								<center>
-									<button type="button" class="btn btn-outline-danger"><b> - </b></button>
-								</center>
+								<div class="col-4">
+									
+									<div class="d-flex flex-row-reverse">
 
-							</div>
+										<input type="number" min="0" name="cantidad" class="cantidad form-control w-50 p-2 mx-3" value="{{ item[2] }}">		
 
-							<div class="col">
+									</div>
 
-								<center>
-									<input type="number" min="0" class="cantidad form-control">		
-								</center>
+								</div>
 
 							</div>
 
-							<div class="col">
+						</li>
 
-								<center>
-									<button type="button" class="btn btn-outline-success"><b> + </b></button>
-								</center>
+					{% endfor %}
 
-							</div>
-                       </div> 
-                    </div>
+				</ul>
 
-                </div>
+				<div class="container" style="margin-left: 21.5%;">
 
-            </li>
+					<div class="p-2">
+						<button type="submit" class="btn btn-primary"><b> Comprar </b></button>
+					</div>
 
-          </ul>
-
-		  <div class="d-flex flex-row-reverse">
-
-				<div class="p-2">
-					<button type="button" class="btn btn-primary"><b> Comprar </b></button>
 				</div>
 
-		  </div>
+			</form>
+		</center>
+
     </div>
 
 {% endblock %}
