@@ -25,14 +25,15 @@ def buy():
     if request.method == 'POST':
         if 'logged' in session and 'id' in session:
             items = request.form.getlist('item')
-            cantidades = request.form.getlist('name')
+            cantidades = request.form.getlist('cantidad')
 
+            cursor = mysql.connection.cursor()
+            print(items, cantidades)
             for item, cantidad in zip(items, cantidades):
                 codigo = item.split("-")
                 codigo = codigo[0].strip()
 
-                if cantidad > 0:
-                    cursor = mysql.connection.cursor()
+                if int(cantidad) > 0:
 
                     sql = "INSERT INTO orders (iid, uid, cantidad) VALUES (%s, %s, %s)"
 

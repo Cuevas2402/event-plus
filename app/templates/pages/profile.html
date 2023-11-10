@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %} Soiree Log in {% endblock %}
+
+{% block head %}
+	{{ super() }}
+
+{% endblock %}
+
+{% block heading %} Chat {% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row my-3" style="height: 15rem;">
+
+            <div class="col">
+                <div class="image-container">
+                    <center>
+                        <img src="{{url_for('static', filename = 'img/profile.png') }}" alt="imagen item">
+                    </center>
+                </div>
+            </div>
+
+            <div class="col py-5">
+                <h1 class="my-2"> {{ name }} </h1>
+
+            </div>
+            
+        </div>
+        <hr class="my-5">
+
+		<center>
+			<h1 class="my-1"> Ordenes Hechas </h1>
+		</center>
+
+        <div class="container my-3 p-3" style="overflow-y: scroll; height: 20rem;">
+			<ol class="list-group list-group-numbered my-3">
+				{% for order in orders %}
+
+					<li class="list-group-item py-3 d-flex justify-content-between align-items-start">
+
+						<div class="ms-2 me-auto">
+							<div class="fw-bold">{{ order[0] }}</div>
+						</div>
+						<span class="badge bg-primary rounded-pill">{{ order[1] }}</span>
+
+					</li>
+				
+				{% endfor %}
+			</ol>
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+
+    {{ super() }}
+    <script>
+
+    </script>
+
+{% endblock %}

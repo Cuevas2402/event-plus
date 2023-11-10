@@ -23,7 +23,7 @@
                             {{ session['username']}}
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('show_profile')}}">Perfil</a></li>
                             <li><a class="dropdown-item" href="{{ url_for('show_cart') }}">Carritio</a></li>
                         </ul>
                     </div>
