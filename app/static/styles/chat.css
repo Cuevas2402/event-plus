@@ -1,5 +1,5 @@
 .chat-box {
-    width: 40rem;
+    width: 45rem;
     height: 30rem; 
     margin-top: 3.5%;
     margin-bottom: 3.5%;
@@ -10,7 +10,7 @@
 }
 
 .chat-header {
-    background-color: #007bff;
+    background-color: #b4af95;
     color: white;
     text-align: center;
     padding: 10px;
@@ -38,7 +38,7 @@ input[type="text"] {
 }
 
 #send-button {
-    background-color: #007bff;
+    background-color: #e6d2a3;
     color: white;
     border: none;
     border-radius: 5px;
