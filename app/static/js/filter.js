@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('select, input').on('change', function() {
+        event.preventDefault();
         var categoria = $('#categoria').val();
         var precio = $('#precio').val();
         var calificacion = $('#calificacion').val();
@@ -17,10 +18,7 @@ $(document).ready(function() {
             },
             success: function(response) {
                 console.log(response.htmls[0])
-                $('#cont').empty();
-                response.htmls.forEach((html) => {
-                    $('#cont').append(html);
-                });
+                $('#cont').html('');
             },
             error: function() {
                 console.log('Error en la solicitud AJAX');

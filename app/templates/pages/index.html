@@ -14,53 +14,64 @@
         <div class="container row my-5 w-100 h-100">
 
             <div class="col-4">
-                <div class="container w-75 my-4 bg-light rounded shadow py-1 w-75" style="height: 30rem;">
-                    <div class="my-3">
 
-                        <label class="my-2" for="calificacion">Filtrar por categoría:</label>
+                <form action="/filter" method="POST">
+                    <div class="container w-75 my-4 bg-light rounded shadow py-1 w-75" style="height: 33rem;">
+                        <div class="my-3">
+
+                            <label class="my-2" for="calificacion">Filtrar por categoría:</label>
+                            
+                            <select class="form-select" id="categoria">
+                                <option value=""> ----- </option>
+                                <option value="comida"> Comida </option>
+                                <option value="inmuebles"> Inmuebles </option>
+                                <option value="floreria"> Floreria</option>
+                            </select>
+
+                        </div>
+
+                        <div class="my-3">
+
+                            <label class="my-2" for="precio">Filtrar por preco: $<span id="precioValor">5000</span></label>
+                            <input type="range" class="form-range" id="precio" min="0" max="5000" value="5000" step="100">
+
+                        </div>
                         
-                        <select class="form-select" id="categoria">
-                            <option value=""> ----- </option>
-                            <option value="comida"> Comida </option>
-                            <option value="inmuebles"> Inmuebles </option>
-                            <option value="floreria"> Floreria</option>
-                        </select>
+                        <div class="my-3">
+
+                            <label class="my-2" for="calificacion">Filtrar por calificación:</label>
+                            <select class="form-select" name="calificacion" id="calificacion">
+                                <option value="5">5 estrellas</option>
+                                <option value="4">4 estrellas</option>
+                                <option value="3">3 estrellas</option>
+                                <option value="2">2 estrellas</option>
+                                <option value="1">1 estrella</option>
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="my-3">
+                            <label class="my-2" for="ubicacion">Filtrar por ubicación:</label>
+                            <input type="text" name="ubicacion" class="form-control" id="ubicacion" placeholder="Buscar por ubicación">
+                        </div>
+                        
+                        <div class="my-3">
+                            <label class="my-2" for="fecha">Filtrar por fecha:</label>
+                            <input type="date" name="fecha" class="form-control" id="fecha">
+                        </div>
+
+                        <div class="d-flex flex-row-reverse">
+                            <button class="btn btn-success" type="submit"> Filtrar </button>
+                        </div>
 
                     </div>
 
-                    <div class="my-3">
+                </form>
 
-                        <label class="my-2" for="precio">Filtrar por preco: $<span id="precioValor">5000</span></label>
-                        <input type="range" class="form-range" id="precio" min="0" max="5000" value="5000" step="100">
-
-                    </div>
-                    
-                    <div class="my-3">
-
-                        <label class="my-2" for="calificacion">Filtrar por calificación:</label>
-                        <select class="form-select" name="calificacion" id="calificacion">
-                            <option value="5">5 estrellas</option>
-                            <option value="4">4 estrellas</option>
-                            <option value="3">3 estrellas</option>
-                            <option value="2">2 estrellas</option>
-                            <option value="1">1 estrella</option>
-                        </select>
-
-                    </div>
-
-
-
-                    <div class="my-3">
-                        <label class="my-2" for="ubicacion">Filtrar por ubicación:</label>
-                        <input type="text" name="ubicacion" class="form-control" id="ubicacion" placeholder="Buscar por ubicación">
-                    </div>
-                    
-                    <div class="my-3">
-                        <label class="my-2" for="fecha">Filtrar por fecha:</label>
-                        <input type="date" name="fecha" class="form-control" id="fecha">
-                    </div>
-                </div>
             </div>
+
 
             <div class="col-8">
                 <div id="cont "class="container row py-4 w-100" style="height: 40rem; overflow: auto;">
@@ -77,7 +88,6 @@
 
 {% block js %}
     {{ super() }}
-    <script src="{{url_for('static', filename='js/filter.js')}}"></script>
     <script>
         const precioInput = document.getElementById('precio');
         const precioValor = document.getElementById('precioValor');

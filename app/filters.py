@@ -38,4 +38,28 @@ def filters():
 
         for result in results:
             htmls.append(render_template('/components/card.html', id = result[0], titulo = result[1], descripcion = result[2], imagen = result[3] ))
-        return jsonify(htmls = htmls) 
+        return render_template('pages/index.html', htmls = htmls)
+
+
+@app.route('/search', methods=['POST', 'GET'])
+def search():
+    if request.method == 'POST':
+        cursor = mysql.connection.cursor()
+
+        sql = "SELECT iid, nombre, desc_p, img FROM item WHERE desc_p LIKE %s OR desc_g LIKE %s OR nombre LIKE %s OR iid LIKE %s OR img LIKE %s"
+        
+        search = request.form.get('search')
+
+        search = '%' + search + '%'
+
+        cursor.execute(sql, (search, search, search, search, search))
+
+        results = cursor.fetchall()
+
+        htmls = []
+
+        for result in results:
+            htmls.append(render_template('/components/card.html', id = result[0], titulo = result[1], descripcion = result[2], imagen = result[3] ))
+
+        return render_template('pages/index.html', htmls = htmls)
+        
